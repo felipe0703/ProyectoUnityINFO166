@@ -601,6 +601,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316885507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1316885507, guid: 7872180e6a664f64ab56842e1f3dcf74,
+    type: 3}
+  m_PrefabInstance: {fileID: 4822032867414462380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1395417069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1145,9 @@ MonoBehaviour:
   macrofago: {fileID: 1045742837}
   pantallaVictoria: {fileID: 1641877981}
   pantallaDerrota: {fileID: 600557080}
+  tiempoInicial: 30
+  escalaDeTiempo: -1
+  textTimer: {fileID: 1316885507}
 --- !u!4 &1879752426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5615707112565389929, guid: 123474aaa8f03174ba30cc732700bc6c,
@@ -1350,11 +1365,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1451950764}
-    - target: {fileID: 3433370498592026994, guid: 7872180e6a664f64ab56842e1f3dcf74,
+    - target: {fileID: 4388862503875612807, guid: 7872180e6a664f64ab56842e1f3dcf74,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 6.3499756
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865039230}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7872180e6a664f64ab56842e1f3dcf74, type: 3}
 --- !u!1001 &5615707113907192963

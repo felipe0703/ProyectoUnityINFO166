@@ -1069,6 +1069,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7386bef6fb2d2844bb497cb084762a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1493136460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1316885507, guid: 7872180e6a664f64ab56842e1f3dcf74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554197494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1554197494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1085,6 +1097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822032867936853617, guid: 7872180e6a664f64ab56842e1f3dcf74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822032867901900998, guid: 7872180e6a664f64ab56842e1f3dcf74,
         type: 3}
@@ -1189,11 +1206,6 @@ PrefabInstance:
     - target: {fileID: 4822032867901900998, guid: 7872180e6a664f64ab56842e1f3dcf74,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4822032867936853617, guid: 7872180e6a664f64ab56842e1f3dcf74,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822032868515995449, guid: 7872180e6a664f64ab56842e1f3dcf74,
@@ -1402,6 +1414,9 @@ MonoBehaviour:
   macrofago: {fileID: 1045742837}
   pantallaVictoria: {fileID: 1772162989}
   pantallaDerrota: {fileID: 96407261}
+  tiempoInicial: 30
+  escalaDeTiempo: -1
+  textTimer: {fileID: 1493136460}
 --- !u!4 &1879752426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5615707112565389929, guid: 123474aaa8f03174ba30cc732700bc6c,

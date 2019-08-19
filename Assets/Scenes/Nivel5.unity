@@ -989,6 +989,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1105908812}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105908816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1316885507, guid: 7872180e6a664f64ab56842e1f3dcf74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1105908812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1290881807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1711,9 @@ MonoBehaviour:
   macrofago: {fileID: 1045742837}
   pantallaVictoria: {fileID: 1105908814}
   pantallaDerrota: {fileID: 1105908813}
+  tiempoInicial: 30
+  escalaDeTiempo: -1
+  textTimer: {fileID: 1105908816}
 --- !u!4 &1879752426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5615707112565389929, guid: 123474aaa8f03174ba30cc732700bc6c,
