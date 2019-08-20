@@ -20,6 +20,8 @@ public class Projectil : MonoBehaviour
     private SpringJoint2D spring;
     private Rigidbody2D rb;
 
+    public AudioClip charge;
+
     bool clickedOn;
     // Start is called before the first frame update
     private void Awake()
@@ -38,8 +40,6 @@ public class Projectil : MonoBehaviour
 
     void Start()
     {
-        
-
         rayToMouse = new Ray(catapult.position, Vector3.zero);
         leftCatapultToProjectile = new Ray(cFront.transform.position, Vector3.zero);
 
@@ -67,15 +67,16 @@ public class Projectil : MonoBehaviour
             Dragging();
         }
 
-        if(spring != null)
+        if (spring != null)
         {
-            if(!rb.isKinematic && prevVel.sqrMagnitude > rb.velocity.sqrMagnitude)
+            if (!rb.isKinematic && prevVel.sqrMagnitude > rb.velocity.sqrMagnitude)
             {
+                GameManager.Instance.PlayClip(GetComponent<Jugador>().wii);
                 Destroy(spring);
                 rb.velocity = prevVel;
                 GameManager.Instance.Lanzado();
             }
-            if(!clickedOn)
+            if (!clickedOn)
             {
                 prevVel = rb.velocity;
             }
@@ -119,7 +120,7 @@ public class Projectil : MonoBehaviour
         Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 catapulToMouse = mouseWorldPoint - catapult.position;
 
-        if(catapulToMouse.sqrMagnitude > maxStretchSqr)
+        if (catapulToMouse.sqrMagnitude > maxStretchSqr)
         {
             rayToMouse.direction = catapulToMouse;
             mouseWorldPoint = rayToMouse.GetPoint(maxStretch);

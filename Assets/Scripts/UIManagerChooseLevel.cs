@@ -1,25 +1,35 @@
-﻿
-#region Namespaces
+﻿#region Namespaces
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 #endregion // Namespaces
 
-
-public class UIManagerMenu : MonoBehaviour
+public class UIManagerChooseLevel : MonoBehaviour
 {
+
     // ########################################
     // Variables
     // ########################################
 
     #region Variables
+    
+    // Canvas
     public Canvas canvas;
+
     // GUIAnimFREE objects of title text
     public GUIAnimFREE title;
 
-    public GUIAnimFREE buttonStart;
+    // GUIAnimFREE objects of buttons
+    public GUIAnimFREE btn_Level1;
+    public GUIAnimFREE btn_Level2;
+    public GUIAnimFREE btn_Level3;
+    public GUIAnimFREE btn_Level4;
+    public GUIAnimFREE btn_Level5;
+    public GUIAnimFREE btn_Level6;
+
     #endregion  // Variables
+
 
 
     // ########################################
@@ -39,9 +49,8 @@ public class UIManagerMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // MoveIn title
+        /// MoveIn title
         StartCoroutine(MoveInTitleGameObjects());
-
         // Disable all scene switch buttons
         GUIAnimSystemFREE.Instance.SetGraphicRaycasterEnable(canvas, false);
     }
@@ -49,30 +58,41 @@ public class UIManagerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     #endregion // MonoBehaviour
 
+    // ########################################
+    // MoveIn/MoveOut functions
+    // ########################################
+
+
     #region MoveIn/MoveOut
 
-    // MoveIn m_Title1 and m_Title2
+    // MoveIn title 
     IEnumerator MoveInTitleGameObjects()
     {
         yield return new WaitForSeconds(1.0f);
 
-        // MoveIn m_Title1 and m_Title2
+        // MoveIn title
         title.PlayInAnims(GUIAnimSystemFREE.eGUIMove.Self);
 
-        // MoveIn all primary buttons
-       StartCoroutine(MoveInButton());
+        // MoveIn buttons
+        StartCoroutine(MoveInPrimaryButtons());
     }
-    // MoveIn all primary buttons
-    IEnumerator MoveInButton()
+
+    // MoveIn m_Dialog
+    IEnumerator MoveInPrimaryButtons()
     {
         yield return new WaitForSeconds(1.0f);
 
-        // MoveIn all primary buttons
-        buttonStart.PlayInAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        // MoveIn dialogs
+        btn_Level1.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
+        btn_Level2.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
+        btn_Level3.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
+        btn_Level4.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
+        btn_Level5.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
+        btn_Level6.PlayInAnims(GUIAnimSystemFREE.eGUIMove.SelfAndChildren);
 
         // Enable all scene switch buttons
         StartCoroutine(EnableAllDemoButtons());
@@ -81,7 +101,7 @@ public class UIManagerMenu : MonoBehaviour
     // Enable/Disable all scene switch Coroutine
     IEnumerator EnableAllDemoButtons()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.8f);
 
         // Enable all scene switch buttons
         GUIAnimSystemFREE.Instance.SetGraphicRaycasterEnable(canvas, true);
@@ -90,10 +110,16 @@ public class UIManagerMenu : MonoBehaviour
     // MoveOut all primary buttons
     public void HideAllGUIs()
     {
-        buttonStart.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        // MoveOut buttons
+        btn_Level1.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        btn_Level2.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        btn_Level3.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        btn_Level4.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        btn_Level5.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        btn_Level6.PlayOutAnims(GUIAnimSystemFREE.eGUIMove.Self);
+        
 
-
-        // MoveOut m_Title1 and m_Title2
+        // MoveOut title
         StartCoroutine(HideTitleText());
     }
 
@@ -107,4 +133,6 @@ public class UIManagerMenu : MonoBehaviour
     }
 
     #endregion  // MoveIn/MoveOut
+
+
 }

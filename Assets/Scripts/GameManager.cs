@@ -18,6 +18,19 @@ public class GameManager : MonoBehaviour
     public GameObject intentoIcon;
     public Transform macrofago;
 
+    #region Audio
+    AudioSource audioSource;
+
+    public AudioClip hit;
+    public AudioClip lose;
+    public AudioClip victory;
+    public AudioClip restart;
+    public AudioClip back;
+    public AudioClip continuar;
+    public AudioClip plop;
+
+    #endregion // audio
+
     #region Pantallas
     public GameObject pantallaVictoria;
     public GameObject pantallaDerrota;
@@ -30,12 +43,14 @@ public class GameManager : MonoBehaviour
     private float escalaDeTiempoAlPausar, escalaDeTiempoInicial;
     public TextMeshProUGUI textTimer;
 
+
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
         }
+        audioSource = GetComponent<AudioSource>();
         intentosRestantes = jugadores.Count;
         posicionInicialJugador = jugadores[jugadorActual].transform.position + macrofago.position;      
     }
@@ -57,6 +72,7 @@ public class GameManager : MonoBehaviour
         do
         {
             yield return new WaitForSeconds(time);
+            PlayClip(plop);
             GameObject icon = intentoIcon;
             icon.GetComponent<Image>().sprite = jugadores[cont].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
             Instantiate(intentoIcon, gridIntentos);
@@ -101,7 +117,8 @@ public class GameManager : MonoBehaviour
 
     public void EnemigoMuerto()
     {
-        if(totalEnemigos-1 <= 0)
+        PlayClip(hit);
+        if (totalEnemigos-1 <= 0)
         {
             GameOver(true);
         }
@@ -116,10 +133,15 @@ public class GameManager : MonoBehaviour
         pausado = true;
         if(win)
         {
+            GameObject.Find("SceneController").gameObject.SendMessage("ActivateWin");
+            PlayClip(victory);
             pantallaVictoria.SetActive(true);
+
         }
         else
         {
+            GameObject.Find("SceneController").gameObject.SendMessage("ActivateLose");
+            PlayClip(lose);
             pantallaDerrota.SetActive(true);
         }
     }
@@ -192,5 +214,23 @@ public class GameManager : MonoBehaviour
         escalaDeTiempo = escalaDeTiempoInicial;
         tiempoAMostrarEnSegundos = tiempoInicial;
         ActualizarReloj(tiempoAMostrarEnSegundos);
+    }
+
+    public void PlayClip(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void Reintento()
+    {
+        PlayClip(restart);
+    }
+    public void Fail()
+    {
+        PlayClip(back);
+    }
+    public void Volver()
+    {
+        PlayClip(continuar);
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5615707112565389929}
   - component: {fileID: 5615707112565389934}
   - component: {fileID: 5615707112565389935}
+  - component: {fileID: 6630338833370578624}
   - component: {fileID: 5615707112565389928}
   - component: {fileID: 5615707112565389933}
   m_Layer: 0
@@ -69,9 +70,22 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2836125, y: 0.4328823}
+  m_Offset: {x: -0.30548823, y: 0.38475478}
   serializedVersion: 2
-  m_Radius: 0.5597074
+  m_Radius: 0.7784678
+--- !u!114 &6630338833370578624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615707112565389930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cc67ea4db433747a1a727f5e99b24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wii: {fileID: 8300000, guid: 88925bd8a13f31149baf33f143f86c6c, type: 3}
 --- !u!231 &5615707112565389928
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -107,6 +121,7 @@ MonoBehaviour:
   maxStretch: 3
   cFront: {fileID: 0}
   cBack: {fileID: 0}
+  charge: {fileID: 0}
 --- !u!1 &5615707113009167870
 GameObject:
   m_ObjectHideFlags: 0

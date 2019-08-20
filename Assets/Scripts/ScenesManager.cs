@@ -4,8 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip next;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void CambiarEscena(string escena)
     {
+        audioSource.PlayOneShot(next);
+
         //SceneManager.LoadScene(escena);
 
         // Disable all buttons
